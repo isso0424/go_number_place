@@ -6,6 +6,10 @@ func(b *Board) getNumbers() [][]int {
 	return b.numbers
 }
 
+func(b *Board) getNumber(coordinate coordinate.Coordinate) int {
+	return b.numbers[coordinate.GetY()][coordinate.GetX()]
+}
+
 func(b *Board) getEmptyCoordinates() []coordinate.Coordinate {
 	results := []coordinate.Coordinate{}
 	for outerIndex, arr := range(b.numbers) {
