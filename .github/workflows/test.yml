@@ -1,0 +1,36 @@
+name: Test
+
+on: push
+
+jobs:
+  build:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Set up Go 1.15
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.15
+      id: go
+
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: Check module existing
+      run: |
+        EXIST_MODULE=$(test -f go.mod) |
+        echo "::set-output name=EXIST_MODULE::${EXIST_MODULE}"
+      id: check
+
+    - name: Get Dependencies
+      run: |
+        if "${{ steps.check.outputs.EXIST_MODULE }}"; then
+          go mod download
+        fi
+
+    - name: Test
+      run: |
+        if "${{ steps.check.outputs.EXIST_MODULE }}"; then
+          go test -v ./...
+        fi
