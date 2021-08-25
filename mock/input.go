@@ -9,7 +9,7 @@ func NewMockInputter(results []string) mockInputter {
 	return mockInputter{ results: results, index: 0 }
 }
 
-func(inputter *mockInputter) Input(_ string) string {
+func(inputter *mockInputter) Input() string {
 	if len(inputter.results) == inputter.index {
 		panic("Results over flow")
 	}
