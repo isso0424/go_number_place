@@ -2,7 +2,6 @@ package console
 
 import (
 	"bufio"
-	"fmt"
 	"os"
 )
 
@@ -12,8 +11,7 @@ func NewInputter() consoleInputter {
 	return consoleInputter{}
 }
 
-func(inputter *consoleInputter) Input(message string) string {
-	fmt.Print(message)
+func(inputter *consoleInputter) Input() string {
 	stdin := bufio.NewScanner(os.Stdin)
 	stdin.Scan()
 
