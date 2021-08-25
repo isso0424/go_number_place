@@ -1,5 +1,5 @@
 package input
 
 type Inputter interface {
-	Input() string
+	Input(message string) string
 }

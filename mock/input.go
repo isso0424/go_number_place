@@ -1,15 +1,15 @@
 package mock
 
-type MockInputter struct {
+type mockInputter struct {
 	results []string
 	index int
 }
 
-func NewMockInputter(results []string) MockInputter {
-	return MockInputter{ results: results, index: 0 }
+func NewMockInputter(results []string) mockInputter {
+	return mockInputter{ results: results, index: 0 }
 }
 
-func(inputter *MockInputter) Input() string {
+func(inputter *mockInputter) Input(_ string) string {
 	if len(inputter.results) == inputter.index {
 		panic("Results over flow")
 	}
