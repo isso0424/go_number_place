@@ -3,7 +3,6 @@ package system
 import (
 	"isso0424/go_number_place/board"
 	"isso0424/go_number_place/coordinate"
-	"strconv"
 )
 
 func validateOneToNine(value int) bool {
@@ -28,31 +27,6 @@ func(s *GameSystem) Start() {
 			s.outputter.Output(boardError.Error() + "\n")
 		}
 	}
-}
-
-func(s *GameSystem) inputNumber(message, validateErrorMessage string, validate func(input int) bool) int {
-		nonError := false
-		validated := false
-		for nonError && validated {
-			s.outputter.Output(message)
-			value, err := strconv.Atoi(s.inputter.Input())
-			if err != nil {
-				s.outputter.Output("please input number\n")
-				nonError = false
-				validated = false
-				continue
-			} else {
-				nonError = true
-			}
-			validated = validate(value)
-			if !validated {
-				s.outputter.Output(validateErrorMessage)
-			}
-			return value
-		}
-
-		// UNREACHABLE
-		return 0
 }
 
 func isGameOver(b *board.Board) bool {
