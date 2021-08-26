@@ -111,11 +111,11 @@ func NewWithValue(plane [][]int) Board {
 		panic("WHY DO YOU WANNA PLAY NUMBER PLACE WITHOUT 9 X 9 BOARD????")
 	}
 
-	for _, arr := range(plane) {
+	for _, arr := range plane {
 		if len(arr) != 9 {
 			panic("WHY DO YOU WANNA PLAY NUMBER PLACE WITHOUT 9 X 9 BOARD????")
 		}
 	}
 
-	return Board{ numbers: plane }
+	return Board{numbers: plane}
 }
