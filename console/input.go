@@ -5,13 +5,13 @@ import (
 	"os"
 )
 
-type consoleInputter struct {}
+type consoleInputter struct{}
 
 func NewInputter() consoleInputter {
 	return consoleInputter{}
 }
 
-func(inputter *consoleInputter) Input() string {
+func (inputter *consoleInputter) Input() string {
 	stdin := bufio.NewScanner(os.Stdin)
 	stdin.Scan()
 

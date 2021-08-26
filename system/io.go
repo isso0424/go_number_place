@@ -5,7 +5,7 @@ import (
 	"strconv"
 )
 
-func(sys *GameSystem) OutputBoard() {
+func (sys *GameSystem) OutputBoard() {
 	numbers := sys.board.GetNumbers()
 
 	sys.outputter.Output("-------------------\n")
@@ -22,29 +22,29 @@ func(sys *GameSystem) OutputBoard() {
 	}
 }
 
-func(s *GameSystem) inputNumber(message, validateErrorMessage string, validate func(input int) bool) int {
-		nonError := false
-		validated := false
-		for !nonError || !validated {
-			s.outputter.Output(message)
-			value, err := strconv.Atoi(s.inputter.Input())
-			if err != nil {
-				s.outputter.Output("Please input number\n")
-				nonError = false
-				validated = false
-				continue
-			} else {
-				nonError = true
-			}
-			validated = validate(value)
-			if !validated {
-				s.outputter.Output(validateErrorMessage)
-				continue
-			}
-
-			return value
+func (s *GameSystem) inputNumber(message, validateErrorMessage string, validate func(input int) bool) int {
+	nonError := false
+	validated := false
+	for !nonError || !validated {
+		s.outputter.Output(message)
+		value, err := strconv.Atoi(s.inputter.Input())
+		if err != nil {
+			s.outputter.Output("Please input number\n")
+			nonError = false
+			validated = false
+			continue
+		} else {
+			nonError = true
+		}
+		validated = validate(value)
+		if !validated {
+			s.outputter.Output(validateErrorMessage)
+			continue
 		}
 
-		// UNREACHABLE
-		return 0
+		return value
+	}
+
+	// UNREACHABLE
+	return 0
 }

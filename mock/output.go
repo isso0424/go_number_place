@@ -5,9 +5,9 @@ type mockOutputter struct {
 }
 
 func NewMockOutputter(dist chan string) mockOutputter {
-	return mockOutputter{ dist }
+	return mockOutputter{dist}
 }
 
-func(outputter *mockOutputter) Output(message string) {
+func (outputter *mockOutputter) Output(message string) {
 	outputter.dist <- message
 }

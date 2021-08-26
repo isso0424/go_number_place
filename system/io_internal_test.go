@@ -13,8 +13,8 @@ func TestInputNumber(t *testing.T) {
 	inputter := mock.NewMockInputter([]string{"-5", "hoge", "0"})
 	outputter := mock.NewMockOutputter(c)
 	sys := GameSystem{
-		board: board.New(),
-		inputter: &inputter,
+		board:     board.New(),
+		inputter:  &inputter,
 		outputter: &outputter,
 	}
 

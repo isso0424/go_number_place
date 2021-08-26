@@ -14,10 +14,10 @@ type AlreadyInputted struct {
 	coor coordinate.Coordinate
 }
 
-func(e AlreadyInputted) Error() string {
+func (e AlreadyInputted) Error() string {
 	return fmt.Sprintf("Coordinate (%d %d) is already inputted.", e.coor.GetX(), e.coor.GetY())
 }
 
-func(e AlreadyInputted) errorCode() int {
+func (e AlreadyInputted) errorCode() int {
 	return 0
 }

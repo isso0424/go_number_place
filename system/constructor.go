@@ -7,5 +7,5 @@ import (
 )
 
 func New(board board.Board, inputter input.Inputter, outputter output.Outputter) GameSystem {
-	return GameSystem{ board, inputter, outputter }
+	return GameSystem{board, inputter, outputter}
 }

@@ -7,7 +7,7 @@ import (
 )
 
 type GameSystem struct {
-	board board.Board
-	inputter input.Inputter
+	board     board.Board
+	inputter  input.Inputter
 	outputter output.Outputter
 }

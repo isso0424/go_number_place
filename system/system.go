@@ -13,7 +13,7 @@ func validateZeroToEight(value int) bool {
 	return value >= 0 && value <= 8
 }
 
-func(s *GameSystem) Start() {
+func (s *GameSystem) Start() {
 	b := &s.board
 	for !isGameOver(b) {
 		x := s.inputNumber("Input x coordinate > ", "Please input between 0 and 8 > ", validateZeroToEight)

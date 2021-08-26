@@ -110,9 +110,9 @@ func TestGameOver(t *testing.T) {
 		},
 	}
 	b := board.NewWithValue(numbers)
-	assert.Equal(t, true, isGameOver(&b));
+	assert.Equal(t, true, isGameOver(&b))
 
-	failed := [][]int {
+	failed := [][]int{
 		{
 			1,
 			1,
@@ -216,7 +216,7 @@ func TestGameOver(t *testing.T) {
 	b2 := board.NewWithValue(failed)
 	assert.Equal(t, true, isGameOver(&b2))
 
-	zeros := [][]int {
+	zeros := [][]int{
 		{
 			0,
 			0,

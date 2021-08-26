@@ -1,13 +1,13 @@
 package coordinate
 
 func New(x, y int) Coordinate {
-	return Coordinate{ x, y }
+	return Coordinate{x, y}
 }
 
 func CreateFromValue(plane [][]int, value int) ([]Coordinate, CoordinateError) {
 	coordinates := []Coordinate{}
-	for y, arr := range(plane) {
-		for x, v := range(arr) {
+	for y, arr := range plane {
+		for x, v := range arr {
 			if value == v {
 				coordinates = append(coordinates, New(x, y))
 			}
@@ -15,7 +15,7 @@ func CreateFromValue(plane [][]int, value int) ([]Coordinate, CoordinateError) {
 	}
 
 	if len(coordinates) == 0 {
-		return coordinates, ValueNotFound{ value }
+		return coordinates, ValueNotFound{value}
 	}
 
 	return coordinates, nil
