@@ -8,17 +8,28 @@ import (
 func (sys *GameSystem) OutputBoard() {
 	numbers := sys.board.GetNumbers()
 
-	sys.outputter.Output("-------------------\n")
-	for _, arr := range numbers {
-		str := "|"
-		for _, x := range arr {
+	sys.outputter.Output("  0 1 2 3 4 5 6 7 8\n")
+	sys.outputter.Output("  ===== ===== =====\n")
+	for i, arr := range numbers {
+		str := fmt.Sprintf("%d ", i)
+		for j, x := range arr {
 			if x == 0 {
-				str += " |"
+				str += " "
+			} else {
+				str += fmt.Sprintf("%d", x)
 			}
-			str += fmt.Sprintf("%d|", x)
+			if j % 3 == 2 {
+				str += " "
+			} else {
+				str += "|"
+			}
 		}
 		sys.outputter.Output(str)
-		sys.outputter.Output("\n-------------------\n")
+		if i % 3 == 2 {
+			sys.outputter.Output("\n  ===== ===== =====\n")
+			continue
+		}
+		sys.outputter.Output("\n  ----- ----- -----\n")
 	}
 }
 
