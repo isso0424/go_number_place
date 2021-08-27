@@ -16,6 +16,7 @@ func validateZeroToEight(value int) bool {
 func (s *GameSystem) Start() {
 	b := &s.board
 	for !isGameOver(b) {
+		s.OutputBoard()
 		x := s.inputNumber("Input x coordinate > ", "Please input between 0 and 8 > ", validateZeroToEight)
 		y := s.inputNumber("Input y coordinate > ", "Please input between 0 and 8 > ", validateZeroToEight)
 		v := s.inputNumber("Input number > ", "Please input between 1 and 9 > ", validateOneToNine)
