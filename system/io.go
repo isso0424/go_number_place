@@ -18,7 +18,9 @@ func (sys *GameSystem) OutputBoard() {
 			} else {
 				str += fmt.Sprintf("%d", x)
 			}
-			if j % 3 == 2 {
+			if j == 8 {
+				str += ""
+			} else if j % 3 == 2 {
 				str += " "
 			} else {
 				str += "|"
